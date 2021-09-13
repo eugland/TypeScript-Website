@@ -252,6 +252,15 @@ const color = { hex: "#187ABF" };
 logPoint(color);
 ```
 
+However, it is also worth noting that duck typing works only on two objects and not on object literals: 
+```ts twoslash
+// @error: 2345
+const rect = { x: 33, y: 3, width: 30, height: 80 };
+logPoint(rect); // logs "33, 3"
+
+logPoint({ x: 33, y: 3, width: 30, height: 80 });
+```
+
 There is no difference between how classes and objects conform to shapes:
 
 ```ts twoslash
@@ -280,6 +289,7 @@ logPoint(newVPoint); // logs "13, 56"
 ```
 
 If the object or class has all the required properties, TypeScript will say they match, regardless of the implementation details.
+
 
 ## Next Steps
 
